@@ -54,18 +54,80 @@
     <!-- MAIN -->
     <main class="flex-shrink-0">
         <div class="container py-4 px-5 mt-5">
-            <h2 class="border-1 border-bottom border-dark">The Code for NumBold</h2>
+            <h2 class="border-1 border-bottom border-dark mb-4">The Code for NumBold</h2>
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                        //Call Hello World
-                        function HelloWorld(){
-                            alert("Hello World");
-                        }
+    //get the values from the page
+    //starts or controller function
+    function getValues() {
+        //get values from the page
+        let startValue = document.getElementById("startValue").value;
+        let endValue = document.getElementById("endValue").value;
+        
+
+        //We need to validate our input
+        //parse into Integers
+        startValue = parseInt(startValue);
+        endValue = parseInt(endValue);
+
+
+        if (Number.isInteger(startValue) && Number.isInteger(endValue)){
+            //call generateNumbers
+            let numbers = generateNumbers(startValue, endValue);
+            //call displayNumbers
+            displayNumbers(numbers);
+
+        } else {
+            alert("You must enter integers");
+        }
+        
+    }
+
+
+    //generate numbers from the starValue to the endValue
+    //logic functions
+    function generateNumbers(sValue, eValue){
+        let numbers = [];
+
+        //we want to get all numbers from start to end
+        for (let i = sValue; i <= eValue; i++){
+
+            //this will execute in a loop until i = eValue
+            numbers.push(i);
+        }
+
+        return numbers;
+
+    }
+
+    //display the numbers and mark even numbers bold
+    //display or view options
+    function displayNumbers(numbers){
+        let templateRows = "";
+        for(let i = 0; i < numbers.length; i++){
+
+            let className = "even";
+            let number = numbers[i];
+
+            if(number % 2 == 0){
+                className = "even";
+            }
+            else{
+                className = "odd";
+            }
+
+            //This renders correctly with Prisim see the source
+            templateRows += `&lt;tr>&lt;td class="${className}" >${number}&lt;/td>&lt;/tr>
+        }
+
+        document.getElementById("results").innerHTML = templateRows;
+
+    }
                     </code>
                     </pre>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 py-5">
                     <p>The Code is structured in one function</p>
                     <h5>Hello World</h5>
                     <p>Hello World is a function that displays an alert with a message of "Hello World"</p>
