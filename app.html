@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: Coding challenge project by Francis MD</title>
+    <title>NumBold App project by Francis MD</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -52,8 +52,47 @@
 
     <!-- MAIN -->
     <main class="flex-shrink-0">
-        <div class="container">
-
+        <div class="container mt-5">
+            <div class="row row-cols-1 row-cols-lg-2">
+                <div class="col col-lg-4 border-end border-2 "> <!-- LEFT COLUMN -->
+                    <h1 class="display-5 fw-bold 1h-1 mb-3">NumBold App</h1>
+                    <h2>A coding challenge project</h2><br>
+                    <p class="lead"><strong>One loop at a time!</strong> A JavaScript coding exercise using loops.<br><br>
+                    A program that extracts the numbers from 0 to 100, displaying the even numbers in 
+                    <strong>BOLD.</strong>
+                    </p>
+                    <h2 class="mt-5 border-bottom border-2">Instructions</h2>
+                    <p>Enter a starting value and an ending value, press the button and the values will appear</p>
+                </div>
+                
+                <div class="col col-lg-8"> <!-- RIGHT COLUMN -->
+                    <div>
+                        <h5>Enter Values</h5>
+                        <form class="row gy-2 gx-3">
+                            <div class="col">
+                                <input id="startValue" type="number" class="form-control" 
+                                placeholder="Start Value" value="0" aria-label="Start Value">
+                            </div>
+                            <div class="col">
+                                <input id="endValue" type="number" class="form-control" 
+                                placeholder="End Value" value="100" aria-label="End Value">
+                            </div>
+                            <div class="col-12 d-flex justify-content-end">
+                                <button id="btnSubmit" type="button" class="btn btn-dark btn-lg">Display the NumBold</button>
+                            </div>
+                        </form>
+                        <h2 class="mt-5 border-bottom border-2">Results</h2>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-sm">
+                                <tbody id="results">
+                                    <!-- Results GOES HERE -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </main>
 
@@ -84,6 +123,9 @@
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
     </script>
     <script src="./js/site.js"></script>
+    <script>
+        document.getElementById("btnSubmit").addEventListener("click", getValues);
+    </script>
 
 </body>
 </html>
